@@ -65,7 +65,8 @@ export default class AddFolder extends Component {
   };
 
   nameChange = letter => {
-    this.setState({name: letter});
+    console.log(letter)
+    this.setState({folder_name: letter});
   };
 
   render() {

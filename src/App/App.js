@@ -66,32 +66,31 @@ class App extends Component {
 
   handleDeleteNote = note_id => {
     const newNotes = this.state.notes.filter(note => note.note_id !== note_id);
-
+console.log(newNotes)
     const options = {
       method: "DELETE",
     };
     fetch(`${this.NoteUrl}/${note_id}`, options)
-      .then(res => {
-        if (!res.ok) {
-          throw new Error("Something went wrong");
-        }
-        return res;
-      })
-      .then(res => res.json())
-      .then(data => {
-        this.setState(
-          {
-            notes: newNotes,
-            error: null,
-          },
-          () => this.props.history.replace("/")
-        );
-      })
-      .catch(err => {
-        this.setState({
-          error: err.message,
-        });
+    .then(res => {
+      if (!res.ok) {
+        throw new Error("Something went wrong");
+      }
+      this.setState(
+        {
+          notes: newNotes,
+          error: null,
+        },
+        () => {
+          console.log(this.state) 
+          this.props.history.replace("/")
+ }
+      );
+    })
+    .catch(err => {
+      this.setState({
+        error: err.message,
       });
+    });
   };
 
   handleAddFolder = folder => {
@@ -158,7 +157,7 @@ class App extends Component {
     );
   }
   render() {
-
+    console.log(this.state)
 
     return (
 

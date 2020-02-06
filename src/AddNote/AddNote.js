@@ -30,7 +30,7 @@ export default class AddNote extends Component {
         validationMessage: "Note name can not be blank.",
         nameValid: false,
       });
-    } else if (!this.state.note_id) {
+    } else if (!this.state.folder_id) {
       this.setState({
         validationMessageFolder: "You must choose a valid folder.",
         idValid: false,
