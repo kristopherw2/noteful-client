@@ -7,9 +7,13 @@ import PropTypes from 'prop-types';
 
 export default class NotePageMain extends Component {
   static contextType = NoteContext;
+  
+  
   render() {
+    
     const { note_id } = this.props.match.params;
     const note = findNote(this.context.notes, note_id);
+    console.log(note_id)
     return (
       <section className='NotePageMain'>
         <Note
@@ -25,6 +29,7 @@ export default class NotePageMain extends Component {
         </div>
       </section>
     );
+    
   }
 }
 

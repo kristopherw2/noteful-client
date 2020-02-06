@@ -148,6 +148,7 @@ class App extends Component {
         <Route
           path='/note/:note_id'
           render={routeProps => {
+            console.log(`This is route NoteMainPaige ${routeProps}`)
             return <NotePageMain {...routeProps} />;
           }}
         />
@@ -158,7 +159,9 @@ class App extends Component {
   }
   render() {
 
+
     return (
+
       <NoteContext.Provider
         value={{
           folders: this.state.folders,
@@ -168,6 +171,7 @@ class App extends Component {
           handleAddFolder: this.handleAddFolder,
         }}
       >
+
         <div className='App'>
           <NotefulError>
             <nav className='App__nav'>{this.renderNavRoutes()}</nav>
