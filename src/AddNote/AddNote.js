@@ -62,20 +62,20 @@ export default class AddNote extends Component {
       }),
     };
 
-    fetch("http://localhost:8000/api/notes", options)
-      .then(res => {
-        if (!res.ok) {
-          throw new Error("Something went wrong");
-        }
-        return res;
-      })
-      .then(res => res.json())
-      .then(data => {
-        this.context.handleAddNote(data);
-      })
-      .catch(err => {
-        this.setState({error: err.message});
-      });
+    fetch("https://immense-inlet-72450.herokuapp.com/api/notes", options)
+        .then(res => {
+            if (!res.ok) {
+                throw new Error("Something went wrong");
+            }
+            return res;
+        })
+        .then(res => res.json())
+        .then(data => {
+            this.context.handleAddNote(data);
+        })
+        .catch(err => {
+            this.setState({ error: err.message });
+        });
   };
 
   nameChange = letter => {

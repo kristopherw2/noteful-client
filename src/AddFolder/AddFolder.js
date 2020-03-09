@@ -46,22 +46,22 @@ export default class AddFolder extends Component {
     };
     console.log(options);
 
-    fetch("http://localhost:8000/api/folders", options)
-      .then(res => {
-        if (!res.ok) {
-          throw new Error("Something went wrong");
-        }
-        return res;
-      })
-      .then(res => res.json())
-      .then(data => {
-        this.context.handleAddFolder(data);
-      })
-      .catch(err => {
-        this.setState({
-          error: err.message,
+    fetch("https://immense-inlet-72450.herokuapp.com/api/folders", options)
+        .then(res => {
+            if (!res.ok) {
+                throw new Error("Something went wrong");
+            }
+            return res;
+        })
+        .then(res => res.json())
+        .then(data => {
+            this.context.handleAddFolder(data);
+        })
+        .catch(err => {
+            this.setState({
+                error: err.message
+            });
         });
-      });
   };
 
   nameChange = letter => {
